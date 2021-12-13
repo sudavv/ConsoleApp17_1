@@ -15,10 +15,10 @@ namespace ConsoleApp3_4
 
         public static void Run()
         {
-            Account<int, string> account1 = new Account<int, string>();
+            Account<int> account1 = new Account<int>();
             account1.Write(1, 0.01, "Николас Коппола");
 
-            Account<string, string> account2 = new Account<string, string>();
+            Account<string> account2 = new Account<string>();
             account2.Write("Номер 1", 0.02, "Николас Коппола");
 
             account1.Read();
@@ -29,7 +29,7 @@ namespace ConsoleApp3_4
             Environment.Exit(0);
         }
 
-        public class Account<T, U>
+        public class Account<T>
         {
             private T Num { get; set; }
             private double Balance { get; set; }
