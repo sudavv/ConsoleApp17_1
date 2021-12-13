@@ -1,15 +1,58 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace ConsoleApp17_1
+using System.Collections.Generic;
+
+using System.IO;
+
+namespace ConsoleApp3_4
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
+            Run();
         }
+
+        public static void Run()
+        {
+            Account<int, string> account1 = new Account<int, string>();
+            account1.Write(1, 0.01, "Николас Коппола");
+
+            Account<string, string> account2 = new Account<string, string>();
+            account2.Write("Номер 1", 0.02, "Николас Коппола");
+
+            account1.Read();
+            account2.Read();
+
+            Console.ReadLine();
+            Run();
+            Environment.Exit(0);
+        }
+
+        public class Account<T, U>
+        {
+            private T Num { get; set; }
+            private double Balance { get; set; }
+            private string Name { get; set; }
+
+            public T Read()
+            {
+                Console.WriteLine("Номер: {0}, Баланс: {1}, Имя: {2}", Num, Balance, Name);
+                return default(T);
+            }
+
+           public T Write(T Num, double Balance, string Name)
+            {
+                this.Num = Num;
+                this.Balance = Balance;
+                this.Name = Name;
+                return default(T);
+            }
+        }
+               
+
     }
 }
+
+
+
